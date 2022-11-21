@@ -12,6 +12,9 @@ RUN python -m pip install -r /app/src/backend/requirements.txt
 
 COPY ./backend_template.conf /app/backend_template.conf
 COPY ./backend_conf.sh /app/backend_conf.sh
+USER root
+RUN chmod +x /app/backend_conf.sh
+USER backend
 ENTRYPOINT ["/bin/bash", "/app/backend_conf.sh"]
 
 WORKDIR /app/src/backend
