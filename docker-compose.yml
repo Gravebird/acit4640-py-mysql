@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  backend:
+    image: gravebird/demo4640:latest
+    depends_on:
+      - database
+    env_file:
+      - variables.env
+  database:
+    image: mysql
+    env_file:
+      - variables.env
+  web:
+    build: nginx
+    depends_on:
+      - backend
+    env_file:
+      - variables.env
+    ports:
+      - 8000:80

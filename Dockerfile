@@ -18,5 +18,6 @@ WORKDIR /app/src/backend
 
 COPY ./wait-for-it.sh ./wait-for-it.sh
 COPY ./start.sh ./start.sh
+RUN chmod +x ./wait-for-it.sh && chmod +x ./start.sh
 
 CMD ./wait-for-it.sh -h database -p ${MYSQL_PORT} -t 30 -s -- ./start.sh
