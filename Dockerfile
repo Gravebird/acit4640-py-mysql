@@ -2,7 +2,7 @@ FROM python:3
 
 RUN apt-get update && apt-get install -y gettext-base default-mysql-client
 
-RUN useradd -m -d /app backend && mkdir /app/src && cp -R ./ /app/src
+RUN useradd -m -d /app backend && mkdir /app/src && mkdir /app/src/backend && mkdir /app/src/frontend && cp -R ./backend /app/src/backend && cp -R ./frontend /app/src/frontend
 USER backend
 WORKDIR /app/src
 
