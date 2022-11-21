@@ -24,7 +24,7 @@ COPY ./wait-for-it.sh ./wait-for-it.sh
 COPY ./start.sh ./start.sh
 
 USER root
-RUN chmod 755 /wait-for-it.sh && chmod 755 ./start.sh
+RUN chmod 755 ./wait-for-it.sh && chmod 755 ./start.sh
 USER backend
 
 CMD ./wait-for-it.sh -h database -p ${MYSQL_PORT} -t 30 -s -- ./start.sh
